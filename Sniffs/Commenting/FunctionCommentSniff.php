@@ -54,7 +54,7 @@ class Symfony2_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commen
 
         // a comment is not required on protected/private methods
         $method = $phpcsFile->getMethodProperties($stackPtr);
-        $commentRequired = 'public' == $method['scope'];
+        $commentRequired = false;//= 'public' == $method['scope'];
 
         if (($code === T_COMMENT && !$commentRequired)
             || ($code !== T_DOC_COMMENT && !$commentRequired)
