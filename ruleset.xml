@@ -51,6 +51,7 @@
         <exclude name="PEAR.ControlStructures.ControlSignature"/>
 
         <exclude name="PEAR.Commenting.FunctionComment.SpacingBeforeTags"/>
+        <exclude name="PEAR.Commenting.FunctionComment.FunctionCommentSniff"/>
 
         <!-- do not check line length -->
         <exclude name="Generic.Files.LineLength"/>
@@ -74,6 +75,7 @@
         <severity>0</severity>
     </rule>
 
+    <!--
     <rule ref="Symfony2.Commenting.FunctionComment.MissingParamComment">
         <severity>0</severity>
     </rule>
@@ -85,4 +87,5 @@
     <rule ref="Symfony2.Commenting.ClassComment.SpacingBeforeTags">
         <message>There should always be a description, followed by a blank line, before the tags of a class comment.</message>
     </rule>
+    -->
 </ruleset>
