@@ -54,7 +54,7 @@ class Symfony2_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commen
 
         // a comment is not required on protected/private methods
         $method = $phpcsFile->getMethodProperties($stackPtr);
-        $commentRequired = false;//= 'public' == $method['scope'];
+        $commentRequired = false;//'public' == $method['scope'];
 
         if (($code === T_COMMENT && !$commentRequired)
             || ($code !== T_DOC_COMMENT && !$commentRequired)
@@ -75,27 +75,7 @@ class Symfony2_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commen
      */
     protected function processReturn($commentStart, $commentEnd)
     {
-        if ($this->isInheritDoc()) {
-            return;
-        }
 
-        $tokens = $this->currentFile->getTokens();
-        $funcPtr = $this->currentFile->findNext(T_FUNCTION, $commentEnd);
-
-        // Only check for a return comment if a non-void return statement exists
-        if (isset($tokens[$funcPtr]['scope_opener'])) {
-            $start = $tokens[$funcPtr]['scope_opener'];
-
-            // iterate over all return statements of this function,
-            // run the check on the first which is not only 'return;'
-            while ($returnToken = $this->currentFile->findNext(T_RETURN, $start, $tokens[$funcPtr]['scope_closer'])) {
-                if ($this->isMatchingReturn($tokens, $returnToken)) {
-                    parent::processReturn($commentStart, $commentEnd);
-                    break;
-                }
-                $start = $returnToken + 1;
-            }
-        }
 
     } /* end processReturn() */
 
@@ -121,11 +101,7 @@ class Symfony2_Sniffs_Commenting_FunctionCommentSniff extends PEAR_Sniffs_Commen
      */
     protected function processParams($commentStart)
     {
-        if ($this->isInheritDoc()) {
-            return;
-        }
 
-        parent::processParams($commentStart);
     } // end processParams()
 
     /**
