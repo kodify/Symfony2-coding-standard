@@ -75,6 +75,15 @@
         <severity>0</severity>
     </rule>
 
+    <rule ref="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace">
+        <severity>0</severity>
+    </rule>
+
+    <rule ref="PEAR.Functions.FunctionCallSignature.Indent">
+        <severity>0</severity>
+    </rule>
+
+
     <!--
     <rule ref="Symfony2.Commenting.FunctionComment.MissingParamComment">
         <severity>0</severity>
